@@ -20,7 +20,7 @@ The contribution of this subnet is its economic mechanism — to our knowledge a
 
 What makes the mechanism possible is where the latest cutting edge llm technology now stands: inference can run bit-exact across different GPUs, computation on masked data is practical piece by piece, and verifying a proof costs milliseconds while redoing the work costs seconds — a gap wide enough for a market to settle on. 
 
-The submission is the subnet proposal built on this substrate — specified below, running on testnet by final event close.
+Our submission is the subnet proposal built on this substrate — specified below, running on testnet by final event close.
 
 
 ## Contents
