@@ -114,7 +114,7 @@ Judges have watched years of projects claim determinism, proofs, or privacy. Eac
 
 All of the above, together, with settlement — no deployed system, anywhere.
 
-Our answers, in order: bit-exact execution across four GPU generations, which is what makes the determinism vote free on a permissionless fleet; a proof-native integer execution path measured on a mid-size open-weight model — deferred, parallel per-piece proofs, full-chain verification in tens of milliseconds — where the served computation is the proven object; masked execution in which the miner holds only noise, attention included, non-interactive in capsule mode, every piece grade-tagged; and settlement in which the proof is the invoice.
+Our answers, in order, each at its honest grade. Measured: bit-exact execution across four GPU generations — which is what makes the determinism vote free on a permissionless fleet — and a proof-native integer execution path on a mid-size open-weight model, with deferred, parallel per-piece proofs and full-chain verification in tens of milliseconds, where the served computation is the proven object. Demonstrated at piece scale: masked execution in which the miner holds only noise, attention included. Designed, and built during this hackathon: capsule-mode non-interactivity, per-piece grade tags, and settlement in which the proof is the invoice.
 
 The differentiator is not any row. It is the conjunction — and the conjunction is not a feature list, it is a dependency chain: without cross-hardware determinism the vote fails; without proof-native execution the proofs cannot price; without transferable proofs the privacy cannot settle. Prior systems are not early versions of this design; they are different designs that cannot be extended into it.
 
