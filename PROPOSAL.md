@@ -94,7 +94,7 @@ Second, two parties can transact on their secrets without a middleman. The appli
 
 The commodity is compute: a slice of LLM execution. What is new is the guarantees attached to each slice — three of them, and they stack (priced as the SKU stack, section 3):
 
-Deterministic — always on. Every slice has exactly one correct output, byte-identical on any GPU. Correctness becomes a fact anyone can check, not an opinion a validator holds.
++ Deterministic — always on. Every slice has exactly one correct output, byte-identical on any GPU. Correctness becomes a fact anyone can check, not an opinion a validator holds.
 + Proven — the slice carries a zero-knowledge proof that the agreed model ran on exactly the committed inputs. Verifiable by anyone, in milliseconds.
 + Private — the slice runs on masked inputs. The miner computing it cannot read the data.
 
