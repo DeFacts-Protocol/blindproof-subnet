@@ -12,7 +12,7 @@ Blindproof is a Bittensor subnet where miners run LLM inference on masked data t
 * Every proof is checkable by anyone in milliseconds, and payment follows the proof, not the promise.
 * Settlement rests on mathematical certainty that the computation ran correctly — to our knowledge, a first for private inference.
 
-The client masks a question, walks away, and returns to a verified answer — from machines that never saw the question at all.
+The client masks a question, walks away, and returns to a verified answer — from machines that never saw the plain-text question at all.
 
 The name "Blindproof" is the design: the miners are blind, yet the work is proven. 
 
