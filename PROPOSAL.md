@@ -108,7 +108,7 @@ The same rail also runs the smallest possible job: the blind threshold check —
 
 Hardware-trust private inference already earns eight-figure annual revenue on this network (Targon; SN28's confidential routing), proving the demand.
 
-zkML subnets prove execution but do not hide inputs. The cell where privacy and verification are both cryptographic is, in every deployed offering publicly documented, empty — an earlier ideathon prototype sketched the combination at toy scale and was never deployed, evidence that the concept is not the hard part.
+zkML subnets prove execution but do not hide inputs. So the map has an empty cell: no deployed offering makes both privacy and verification cryptographic. The combination has been sketched — an earlier ideathon prototype tried it at toy scale and was never deployed — which is evidence that the concept is not the hard part. Building it is.
 
 This subnet is built to fill that cell, serving the validated demand one trust level up and adding the buyers — regulated financials, cross-border data, material non-public information — for whom hardware trust is the dealbreaker.
 
