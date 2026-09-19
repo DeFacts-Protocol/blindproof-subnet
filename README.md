@@ -40,4 +40,4 @@ Payment follows the proof, not the promise.
 
 ## Team
 
-We come from the regulated finance this subnet serves — we are building the product we were never allowed to buy.
+We come from the regulated finance customers this subnet serves — we are building the product we were currently unable to buy.
