@@ -195,7 +195,9 @@ Anyone can verify for free; anyone can prove slowly for free; proving fast is a 
 
 ### The SKU stack
 
-The rail sells three properties that stack. **Deterministic** is the floor and is always on — bit-exact, reproducible execution is what makes the other two layers possible, and is a product in itself (reproducible, audit-grade inference).
+The rail sells three properties that stack. 
+
+**+ Deterministic** is the floor and is always on — bit-exact, reproducible execution is what makes the other two layers possible, and is a product in itself (reproducible, audit-grade inference).
 
 **+ Proven** adds transferable proof and settlement: verified inference for plaintext workloads where correctness is the commodity — agent-output verification, benchmark integrity, regulated serving — running on the measured proof lane from day one.
 
