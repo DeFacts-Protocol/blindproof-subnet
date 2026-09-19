@@ -40,7 +40,7 @@ Our submission is the subnet proposal built on this substrate — specified belo
 
 ### The problem
 
-Trustless private inference does not exist. A prompt sent to any of today's AI services is readable by whoever runs the machines.
+Trustless private inference does not exist. A prompt sent to any of today's AI services is readable by whoever runs the compute on thier machines.
 
 The best current answer — hardware enclaves, formally Trusted Execution Environments (TEEs) — does not remove that exposure. It relocates the trust from the service operator to the chip maker and its supply chain — both with documented histories of compromise. For the workloads that need privacy most, "trust the chip" is exactly the trust that cannot be given.
 
