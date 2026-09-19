@@ -114,23 +114,15 @@ This subnet is built to fill that cell, serving the validated demand one trust l
 
 Our proof rail is equally useful to the TEE tier, which we treat as complementary infrastructure, not competition.
 
-### Seen it before? The claims, audited
+### The market today
 
-Judges have watched years of projects claim determinism, proofs, or privacy. Each claim deserves an audit of how it is actually achieved — because in every prior case, at least one of three tests fails.
+Hardware-trust private inference already earns eight-figure annual revenue on this network (Targon; SN28's confidential routing), proving the demand.
 
-"Deterministic inference" — achieved today by pinning identical hardware, drivers, and seeds, or not bit-exact at all: tolerance bands and probabilistic locality proofs (TOPLOC-class, SN53). The test it fails: does determinism survive a heterogeneous, permissionless fleet? Pinning is homogeneity, not determinism — it cannot support a cross-vendor vote.
+zkML subnets prove execution but do not hide inputs. The cell where privacy and verification are both cryptographic is, in every deployed offering publicly documented, empty — an earlier ideathon prototype sketched the combination at toy scale and was never deployed, evidence that the concept is not the hard part.
 
-"ZK-proven inference" — achieved today by zkML circuits over toy models: GPT-2-class systems publish minutes of proving per few-hundred-token input and seconds per verification, on models an order of magnitude smaller than production; the circuit proves a compiled surrogate, not the served computation (SN2-class, EZKL-class, DeepProve-class). The test it fails: is the proven object the served object, at production scale, at settlement speed? Proof-retrofitted systems pay a conversion tax forever.
+This subnet is built to fill that cell, serving the validated demand one trust level up and adding the buyers — regulated financials, cross-border data, material non-public information — for whom hardware trust is the dealbreaker.
 
-"Private inference" — achieved today in four flavors: TEE (hardware-vendor trust — and TDXRay recovers user prompts with encryption and attestation fully intact); policy privacy ("we don't log" — a promise, not a control); interactive split-inference (the client computes the model's entire nonlinear half itself, with no proof of the delegated work); and pure FHE (best open 8B result: roughly six minutes per 128-token input on an H100). The test it fails: does privacy exclude every hardware vendor, keep the model's compute off the client, and still yield a transferable proof a third party can settle on?
-
-"Proof marketplace" — proof generation commoditized as a service (=nil;-class): no privacy, no binding to inference, no inference settlement. The test: does the market settle private computation, or merely sell proving cycles?
-
-All of the above, together, with settlement — no deployed system, anywhere.
-
-Our answers, in order, each at its honest grade. Measured: bit-exact execution across four GPU generations — which is what makes the determinism vote free on a permissionless fleet — and a proof-native integer execution path on a mid-size open-weight model, with deferred, parallel per-piece proofs and full-chain verification in tens of milliseconds, where the served computation is the proven object. Demonstrated at piece scale: masked execution in which the miner holds only noise, attention included. Designed, and built during this hackathon: capsule-mode non-interactivity, per-piece grade tags, and settlement in which the proof is the invoice.
-
-The differentiator is not any row. It is the conjunction — and the conjunction is not a feature list, it is a dependency chain: without cross-hardware determinism the vote fails; without proof-native execution the proofs cannot price; without transferable proofs the privacy cannot settle. Prior systems are not early versions of this design; they are different designs that cannot be extended into it.
+Our proof rail is equally useful to the TEE tier, which we treat as complementary infrastructure, not competition.
 
 ### What exists, what the hackathon proves, what remains
 
