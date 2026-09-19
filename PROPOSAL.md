@@ -74,7 +74,7 @@ Three non-TEE roads have now been tried. Each proves part of the direction and l
 
 To be clear about what we are not claiming: TEE privacy is real security against many adversaries. But it is trust in a manufacturer, not a guarantee from mathematics — and it cannot serve the two-party case at all, because an enclave is by definition one box that sees everything inside it.
 
-### What we build
+### What we are building
 
 Private inference as a market commodity: models executed on masked data by machines that see only noise, proven correct by anyone in milliseconds, and paid on proof.
 
