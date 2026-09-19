@@ -20,6 +20,12 @@ Three properties that stack:
 
 Together: private, proven, settled — a cell no deployed system occupies.
 
+## How it works (one job)
+
+1. **Client masks & submits.** The input commitment is anchored on-chain; the miner receives only noise.
+2. **Miner executes blind & proves.** Every piece of the computation carries a ZK proof; the bundle is posted to a public store and its hash committed on-chain.
+3. **Validator verifies in ~20 ms — and money moves.** Four public checks pass: the miner's weight rises (emissions) and the client's escrowed fee releases (revenue). Any watcher can re-run the same checks; a false credit is slashable.
+
 ## Settlement is the new primitive
 
 Verification is cheap enough (~20 ms) to run *before* payment on every job — not sampled, not probabilistic. One verified proof moves both money streams at once: the miner's validator-set weight rises (emissions), and the client's escrowed fee releases (revenue). Every crediting decision is publicly re-checkable, so a false credit is a slashable offense any watcher can prove for a bounty. And because every paid job leaves a proof bundle hashed on-chain, the subnet's revenue ledger is auditable by anyone.
@@ -40,4 +46,4 @@ Payment follows the proof, not the promise.
 
 ## Team
 
-We come from the regulated finance customers this subnet serves — we are building the product we were currently unable to buy.
+We come from the regulated finance this subnet serves — we are building the product we were never allowed to buy.
