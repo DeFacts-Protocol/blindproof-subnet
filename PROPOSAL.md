@@ -5,7 +5,7 @@
 
 **Bittensor Global Subnet Hackathon — Subnet Proposal (Checkpoint #1)**
 
-Blindproof is a Bittensor subnet where miners run LLM inference on data they mathematically cannot read — and are paid only when a public proof confirms the work ran exactly right. 
+Blindproof is a Bittensor subnet where miners run LLM inference on masked data they mathematically cannot read — and are paid only when a public proof confirms the work ran exactly right. 
 
 * Every value a miner computes is masked noise. 
 * Every piece of the computation carries a zero-knowledge (ZK) proof. 
