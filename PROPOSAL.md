@@ -7,7 +7,7 @@
 
 Blindproof is a Bittensor subnet where miners run LLM inference on data they mathematically cannot read — and are paid only when a public proof confirms the work ran exactly right. Every value a miner ever holds is masked noise. Every piece of the computation carries a zero-knowledge (ZK) proof. Every proof is checkable by anyone in milliseconds, and payment follows the proof, not the promise. The client masks a question, walks away, and returns to a verified answer — from machines that never saw the question at all.
 
-The name "Blindproof" is the design: the miners are blind, yet the work is proven.
+The name "Blindproof" is the design: the miners are blind, yet the work is proven. Settlement rests on mathematical certainty that the computation ran correctly — to our knowledge, a first for private inference.
 
 The contribution of this subnet is its economic mechanism — to our knowledge a first of its kind: incentives and settlement conditioned on cryptographic proof, with verification cheap enough to run before payment on every job, so that one verified proof moves both money streams at once — the miner's emissions and the client's escrowed fee. 
 
