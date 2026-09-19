@@ -16,9 +16,9 @@ The client masks a question, walks away, and returns to a verified answer — fr
 
 The name "Blindproof" is the design: the miners are blind, yet the work is proven. 
 
-The contribution of this subnet is its economic mechanism — to our knowledge a first of its kind: incentives and settlement conditioned on cryptographic proof, with verification cheap enough to run before payment on every job, so that one verified proof moves both money streams at once — the miner's emissions and the client's escrowed fee. 
+The contribution of this subnet is its economic mechanism: incentives and settlement conditioned on cryptographic proof, with verification cheap enough to run before payment on every job, so that one verified proof moves both money streams at once — the miner's emissions and the client's escrowed fee. 
 
-What makes the mechanism possible is where the latest cutting edge llm technology now stands: inference can run bit-exact across different GPUs, computation on masked data is practical piece by piece, and verifying a proof costs milliseconds while redoing the work costs seconds — a gap wide enough for a market to settle on. 
+What makes the mechanism possible is where the latest cutting-edge LLM technology now stands: inference can run bit-exact across different GPUs, computation on masked data is practical piece by piece, and verifying a proof costs milliseconds while redoing the work costs seconds — a gap wide enough for a market to settle on. 
 
 Our submission is the subnet proposal built on this substrate — specified below, running on testnet by final event close.
 
@@ -40,7 +40,7 @@ Our submission is the subnet proposal built on this substrate — specified belo
 
 ### The problem
 
-Trustless private inference does not exist. A prompt sent to any of today's AI services is readable by whoever runs the compute on thier machine.
+Trustless private inference does not exist. A prompt sent to any of today's AI services is readable by whoever runs the compute on their machines.
 
 The best current answer — hardware enclaves, formally Trusted Execution Environments (TEEs) — does not remove that exposure. It relocates the trust from the service operator to the chip maker and its supply chain — both with documented histories of compromise. For the workloads that need privacy most, "trust the chip" is exactly the trust that cannot be given.
 
@@ -84,7 +84,7 @@ What has never existed is the market: a way to price private inference, prove it
 
 Privacy comes from mathematics, with no hardware vendor anywhere in the trust claim; enclaves are required nowhere and welcome everywhere, as an optional second wall on the cryptographic floor.
 
-### Two abilities the world has not had.
+### Two abilities the world has not had
 
 First, anyone can use a frontier-scale AI model from a laptop or phone with mathematical certainty that no one — not the machines running it, not the network, not us — can read the question or the answer. The model runs distributed across miners who each see only noise, and the user's device can verify every step of the work itself, because checking proofs costs milliseconds regardless of model size. The frontier model becomes a verifiable public utility.
 
@@ -115,23 +115,13 @@ This subnet is built to fill that cell, serving the validated demand one trust l
 Our proof rail is equally useful to the TEE tier, which we treat as complementary infrastructure, not competition.
 
 
-### What exists, what the hackathon proves, what remains
+### What exists, and what the hackathon builds
 
-- Deterministic inference: Measured (mid-size open-weight model); hackathon: Subnet integration.
-- Proof generation: Measured (mid-size open-weight model); hackathon: Miner production path.
-- Proof verification: Measured, tens of ms; hackathon: Validator + client integration.
-- Masked computation: Piece-scale, demonstrated; hackathon: Integrated private pieces, grade-tagged.
-- Two-input masking: Piece-scale, demonstrated; hackathon: Blind threshold check on testnet.
-- Gateway mode (interactive): Architecture complete; hackathon: Proven end to end on testnet.
-- Capsule mode (non-interactive): Piece-scale, demonstrated; hackathon: Elements demonstrated, grade-tagged.
-- Full private LLM: Not claimed; hackathon: Phase-two convergence.
-- zkTLS attestation (web proofs binding an input to its HTTPS source): Interface specified; hackathon: Future integration.
-- TEE tier: Optional by design; hackathon: Future tier.
-Trust removed: miner honesty; validator honesty for deterministic verification; the execution operator seeing plaintext; any hardware vendor.
+Measured today: bit-exact execution across GPU generations, and per-piece proving with verification in tens of milliseconds, on a mid-size open-weight model. Demonstrated at piece scale: masked computation, including inputs masked by two independent parties.
 
-Assumptions remaining: standard cryptographic hardness per each piece's grade tag; secure client-side masking; blinded material manufacture with manufacturer non-collusion; availability-quorum honesty; Bittensor's validator-stake consensus; implementation correctness. The system does not eliminate trust; it relocates residual trust into explicitly identified, cheaper assumptions.
+Built during the hackathon: the subnet itself — the miner/validator loop, the settlement mechanism, and the blind threshold check, live on testnet. Full private frontier inference is not claimed; it is the roadmap, and section 8 grades every claim to its evidence.
 
-The hackathon does not ask the judge to take full private frontier inference on faith. It demonstrates the proof substrate, the private pieces, and the economic loop that joins them.
+Trust removed: the miner's honesty, the validator's honesty for verification, the operator's ability to read the data, and any hardware vendor. Trust remaining: standard cryptographic assumptions per piece, secure masking on the client's own machine, and Bittensor's validator-stake consensus. The system does not eliminate trust; it relocates it into fewer, cheaper, explicitly named assumptions.
 
 ---
 
@@ -404,7 +394,7 @@ The declared open frontier is material economics: offline material scales with t
 
 This proposal; the mechanism specification (scoring formula, anchoring rules, bounty and availability economics, collusion table, storage policy); working piece/seam toy protocols with concrete numbers; a proof system and verifier already measured on a mid-size open-weight model.
 
-### To final (Oct 19) 
+### To final (Oct 19)
 
 - subnet scaffolding on testnet.
 - miner implementing deterministic 0.5B serving, per-piece proof bundles, store posting, hash commitment.
@@ -413,7 +403,7 @@ This proposal; the mechanism specification (scoring formula, anchoring rules, bo
 - public repository with all mechanism code, the contract book, the reference CPU prover, the proof-format spec, the conformance suite, and deployment instructions.
 - the four incentive experiments run and documented.
 - the mode split proven at its honest grades — gateway mode end to end (masked job in, blind execution, verified answer out, settled), capsule mode as demonstrated elements (non-interactive masked pieces with hydrated seam material, grade-tagged).
-- a demo video showing one job end to end — masked input anchored, blind execution, bundle published, chain verified by the validator and independently by the client's orchestrator, payment settled — plus the piece-level private-lane demonstration (masked attention computing on data the operator cannot read, grade-tagged), the splice-and-reject beat, and a two-miner dispatch of one job as the scaling fractal
+- a demo video showing one job end to end — masked input anchored, blind execution, bundle published, chain verified by the validator and independently by the client's orchestrator, payment settled — plus the piece-level private-lane demonstration (masked attention computing on data the operator cannot read, grade-tagged), the splice-and-reject beat, and a two-miner dispatch of one job as the scaling fractal.
 
 ### Evidence grades, stated plainly
 
@@ -433,7 +423,7 @@ Phase one proves pieces in the deterministic lane while demonstrating privacy at
 - Phase-two convergence.
 - Two-party no-plaintext jobs with escrowed disclosure.
 - Delegated proving and material markets as distinct miner roles.
-- ZkTLS integration.
+- zkTLS integration.
 - The attested-enclave tier (crypto floor, hardware armor).
 - Network-side untrusted coordination once full-depth non-interactivity is confirmed.
 - Model scale-up along the identical architecture (the 0.5B and 7B+ models share one per-layer op graph, so scaling claims are extrapolations on one circuit).
