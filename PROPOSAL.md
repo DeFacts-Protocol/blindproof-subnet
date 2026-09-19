@@ -114,15 +114,6 @@ This subnet is built to fill that cell, serving the validated demand one trust l
 
 Our proof rail is equally useful to the TEE tier, which we treat as complementary infrastructure, not competition.
 
-### The market today
-
-Hardware-trust private inference already earns eight-figure annual revenue on this network (Targon; SN28's confidential routing), proving the demand.
-
-zkML subnets prove execution but do not hide inputs. The cell where privacy and verification are both cryptographic is, in every deployed offering publicly documented, empty — an earlier ideathon prototype sketched the combination at toy scale and was never deployed, evidence that the concept is not the hard part.
-
-This subnet is built to fill that cell, serving the validated demand one trust level up and adding the buyers — regulated financials, cross-border data, material non-public information — for whom hardware trust is the dealbreaker.
-
-Our proof rail is equally useful to the TEE tier, which we treat as complementary infrastructure, not competition.
 
 ### What exists, what the hackathon proves, what remains
 
