@@ -1,15 +1,17 @@
 # Blindproof
-*Larvatus prodeo — "I advance masked." — Descartes*
-
 ## Private & proven AI inference at scale
 
 **Bittensor Global Subnet Hackathon — Subnet Proposal (Checkpoint #1)**
 
-Blindproof is a Bittensor subnet where miners run LLM inference on data they mathematically cannot read — and are paid only when a public proof confirms the work ran exactly right. Every value a miner ever holds is masked noise. Every piece of the computation carries a zero-knowledge (ZK) proof. Every proof is checkable by anyone in milliseconds, and payment follows the proof, not the promise. The client masks a question, walks away, and returns to a verified answer — from machines that never saw the plain text question or answer at all.
+*Repository: [github.com/DeFacts-Protocol/blindproof-subnet](https://github.com/DeFacts-Protocol/blindproof-subnet) — subnet, miner, and validator code land here per the roadmap in section 8.*
+
+*Larvatus prodeo — "I advance masked." — Descartes*
+
+Blindproof is a Bittensor subnet where miners run LLM inference on data they mathematically cannot read — and are paid only when a public proof confirms the work ran exactly right. Every value a miner ever holds is masked noise. Every piece of the computation carries a zero-knowledge (ZK) proof. Every proof is checkable by anyone in milliseconds, and payment follows the proof, not the promise. The client masks a question, walks away, and returns to a verified answer — from machines that never saw the question at all.
 
 The name says the design three ways: blind plus proof — private plus proven; proof as in waterproof — impervious to being seen; and proofed against blindness itself — a system in which sightlessness costs nothing.
 
-We do not arrive with an idea. We arrive with a working proof system measured on a mid-size open-weight model, a masked lane demonstrated piece by piece, and the economic mechanism that joins them — specified below, and running on testnet by final submission. Every claim that follows is graded to its evidence — measured, demonstrated, designed, or declared — and the ones that matter most are checkable by running our public verifier rather than by believing us.
+The contribution of this subnet is its economic mechanism — to our knowledge a first of its kind: incentives and settlement conditioned on cryptographic proof, with verification cheap enough to run before payment on every job, so that one verified proof moves both money streams at once — the miner's emissions and the client's escrowed fee. The components that make this possible are already measured — chain verification in tens of milliseconds, bit-exact execution across GPU generations, masked computation at piece scale. The mechanism that turns them into a market is specified below, and runs on testnet by final submission.
 
 ---
 
