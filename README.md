@@ -4,7 +4,7 @@
 
 *Larvatus prodeo — "I advance masked." — Descartes*
 
-Blindproof is a Bittensor subnet where miners run LLM inference on data they mathematically cannot read: they are paid only when a public proof confirms the work ran exactly right. The client masks a question, walks away, and returns to a verified answer from machines that never saw the question — or the answer they just computed.
+Blindproof is a Bittensor subnet where miners run LLM inference on data they mathematically cannot read: they are paid only when a public proof confirms the work ran exactly right. The client masks a question, walks away, and returns to a verified answer from machines that never saw the plain-text question — or the answer they themselves just computed.
 
 ## The problem
 
