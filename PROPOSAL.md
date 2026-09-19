@@ -7,7 +7,7 @@
 
 *Larvatus prodeo — "I advance masked." — Descartes*
 
-Blindproof is a Bittensor subnet where miners run LLM inference on data they mathematically cannot read — and are paid only when a public proof confirms the work ran exactly right. Every value a miner ever holds is masked noise. Every piece of the computation carries a zero-knowledge proof. Every proof is checkable by anyone in milliseconds, and payment follows the proof, not the promise. The client masks a question, walks away, and returns to a verified answer — from machines that never saw the question at all.
+Blindproof is a Bittensor subnet where miners run LLM inference on data they mathematically cannot read — and are paid only when a public proof confirms the work ran exactly right. Every value a miner ever holds is masked noise. Every piece of the computation carries a zero-knowledge (ZK) proof. Every proof is checkable by anyone in milliseconds, and payment follows the proof, not the promise. The client masks a question, walks away, and returns to a verified answer — from machines that never saw the question at all.
 
 The name says the design three ways: blind plus proof — private plus proven; proof as in waterproof — impervious to being seen; and proofed against blindness itself — a system in which sightlessness costs nothing.
 
@@ -34,7 +34,7 @@ We do not arrive with an idea. We arrive with a working proof system measured on
 
 Trustless private inference does not exist. A prompt sent to any of today's AI services is readable by whoever runs the machines.
 
-The best current answer, hardware enclaves (TEEs), does not remove that exposure. It relocates the trust from the service operator to the chip maker and its supply chain — both with documented histories of compromise. For the workloads that need privacy most, "trust the chip" is exactly the trust that cannot be given.
+The best current answer — hardware enclaves, formally Trusted Execution Environments (TEEs) — does not remove that exposure. It relocates the trust from the service operator to the chip maker and its supply chain — both with documented histories of compromise. For the workloads that need privacy most, "trust the chip" is exactly the trust that cannot be given.
 
 The exposure carries two costs. For a single party, the cost is the questions that never get asked: an analyst cannot put a market-sensitive question through a shared AI platform, because the operator of that platform becomes an insider to material non-public information the moment the question is typed.
 
@@ -44,25 +44,27 @@ So these transactions clear the only way they can — through trusted intermedia
 
 ### The existing answer, and why it is not enough
 
-TEEs are the legitimate state of the art, and — with a first exception only now surfacing, addressed below — every private-inference service in production today, on this network and off it, rests on them. That includes the LLM products of the cryptography companies themselves: the leading MPC vendor ships its private-LLM service on SEV-SNP CPUs and H100 Confidential Compute, and the leading FHE vendor's LLM approach runs most of the model unencrypted on the client, reserving FHE for a small fragment.
+The state of the art is the TEE — the Trusted Execution Environment, a hardware "enclave": a sealed region of the chip that promises to run code so that not even the machine's operator can look inside. With one exception addressed below, every private-inference service in production today — on this network and off it — rests on TEEs. That includes the LLM products of the cryptography companies themselves: the leading MPC (secure multi-party computation) vendor runs its private-LLM service inside confidential-computing CPUs and GPUs, and the leading FHE (fully homomorphic encryption) vendor's LLM design runs most of the model unencrypted on the client, reserving encryption for a small fragment.
 
-But an enclave does not make inference trustless; it relocates the trust — from the service operator to the chip vendor's silicon, firmware, microcode, and attestation infrastructure, an entire hardware supply chain that the user must take on faith.
+An enclave does not make inference trustless. It relocates the trust — from the service operator to the chip maker: silicon, firmware, microcode, and the attestation servers that vouch for all of it. The user stops trusting a company and starts trusting a hardware supply chain.
 
-The compromises are on the record and current: Foreshadow, Plundervolt, and SGAxe against Intel SGX — SGAxe extracting attestation keys outright; TDXDown and CounterSEVeillance against the TDX and SEV lines that replaced it; and TEE.Fail (2025) breaking current-generation TDX and SEV-SNP with sub-$1,000 memory-interposition hardware — forging attestation quotes, Intel's and NVIDIA's included, so that workloads can masquerade as enclave-protected while running in the open.
+That supply chain keeps breaking. Foreshadow, Plundervolt, and SGAxe broke Intel's first-generation enclaves — SGAxe stole the attestation keys themselves. TDXDown and CounterSEVeillance hit the current Intel and AMD lines. TEE.Fail (2025) broke both current generations with under $1,000 of hardware and forged the attestation certificates — Intel's and NVIDIA's — so ordinary workloads can masquerade as enclave-protected.
 
-Most directly on point, TDXRay (IEEE S&P 2026) recovers users' LLM prompts from unmodified confidential VMs on current-generation TDX — the host reconstructing the prompt from memory-access patterns during tokenization, reliably from a single trace, with encryption and attestation fully intact.
+The newest result is the most direct. TDXRay (IEEE S&P 2026) recovers users' LLM prompts from unmodified confidential VMs on current hardware: the host reads the prompt back from memory-access patterns during tokenization — reliably, from a single trace — while encryption and attestation stay fully intact.
 
 The enclave can hold and the prompt can leak anyway.
 
-The surfacing exception proves the direction while leaving the gap. An early-access split-inference system (CCS 2026 demo track) now serves a 119B open-weight MoE with no TEE, by additively masking the linear offload while attention, every nonlinearity, the router, and the KV cache stay on the client's own VM. It removes the hardware vendor — and it remains interactive, with round trips per layer; it leaves the model's entire nonlinear majority as the client's compute burden; it is a single provider; and it carries no proof of the computation and no settlement, so correctness and liveness are taken on faith. That is the privacy half of the primitive without the verification half or the market.
+Three non-TEE roads have now been tried. Each proves part of the direction and leaves the gap:
 
-The academic frontier reached the same split this month: a September 2026 prototype adds efficient client-side verification of the delegated linear operations under structured masking — but the verification is designated-verifier, convincing only the client who sampled the challenge; it yields no transferable proof a third party could check, and therefore nothing a market could settle on.
+- **Commercial split inference** (an early-access system, CCS 2026 demo track) serves a 119-billion-parameter open model with no TEE by masking the heavy linear math it sends to its servers, while attention, every nonlinear step, and the memory cache stay on the client's own machine. No hardware vendor to trust — but the client stays online for every layer, carries the model's hardest compute itself, and receives no proof the delegated work was done correctly. Privacy, without verification or a market.
 
-And the pure-FHE road now has its strongest public result: an open-source end-to-end CKKS Llama-3-8B (September 2026) evaluating a 128-token input in roughly six minutes on an H100 — orders of magnitude over plaintext, unverified, unsettled; the wall our piece architecture exists to route around, measured by its own best practitioners.
+- **Client-verified split inference** (an academic prototype, September 2026) adds verification to the same split — but only the client who issued the challenge can check the result. There is no transferable proof a third party could inspect, and therefore nothing a marketplace could settle payment on.
 
-Trustless inference — private, proven, and settled — still does not exist.
+- **Pure FHE** — running the entire model under encryption — posted its best open result in September 2026: a 128-token input through an 8-billion-parameter model in roughly six minutes on an H100. Orders of magnitude slower than plaintext, unverified, unsettled. That cost wall is exactly what our piece architecture is designed to route around.
 
-TEE privacy is real security against many adversaries; it is also trust in a manufacturer, not a guarantee from mathematics. And it cannot touch the two-party face at all: an enclave is by definition one box that sees everything inside it.
+**Trustless inference — private, proven, and settled — still does not exist.**
+
+To be clear about what we are not claiming: TEE privacy is real security against many adversaries. But it is trust in a manufacturer, not a guarantee from mathematics — and it cannot serve the two-party case at all, because an enclave is by definition one box that sees everything inside it.
 
 ### What we build
 
@@ -126,7 +128,7 @@ The differentiator is not any row. It is the conjunction — and the conjunction
 - Gateway mode (interactive): Architecture complete; hackathon: Proven end to end on testnet.
 - Capsule mode (non-interactive): Piece-scale, demonstrated; hackathon: Elements demonstrated, grade-tagged.
 - Full private LLM: Not claimed; hackathon: Phase-two convergence.
-- zkTLS attestation: Interface specified; hackathon: Future integration.
+- zkTLS attestation (web proofs binding an input to its HTTPS source): Interface specified; hackathon: Future integration.
 - TEE tier: Optional by design; hackathon: Future tier.
 Trust removed: miner honesty; validator honesty for deterministic verification; the execution operator seeing plaintext; any hardware vendor.
 
@@ -148,7 +150,7 @@ Determinism is load-bearing three times: proofs commit to one canonical answer r
 
 ### Masked
 
-Input owners mask locally before submission; every value the compute side ever holds, including attention scores and patterns, is masked — exactly uniform in the OTP lane, computationally indistinguishable from uniform in the island lane, as declared by each piece's grade tag.
+Input owners mask locally before submission; every value the compute side ever holds, including attention scores and patterns, is masked — in the linear bulk of the model, masks are one-time pads (OTP) — the masked values are exactly uniform noise; inside the nonlinear "islands," masked values are computationally indistinguishable from noise; each piece's grade tag declares which.
 
 Linear layers — the bulk of a transformer — run on additively masked values at near-plaintext cost; nonlinear operations run in confined masked islands.
 
@@ -365,7 +367,7 @@ The buyers mirror the two abilities in section 1.
 
 For private use of a model, the buyer is anyone whose question is the secret. Individuals asking medical, legal, or financial questions they would never type into a watched service. Professionals bound by privilege and confidentiality — attorneys, physicians, auditors — for whom sending client or patient matter to a readable inference service is an ethics violation, not a preference. Firms whose prompts are themselves trade secrets: code, strategy, research direction. This is the volume market, and it needs no sales motion beyond existing demand for AI — it is the same demand, minus the watcher.
 
-For transacting on secrets, the first buyers are financial institutions with computations that disclosure currently forbids or degrades: M&A and investment analysis over material non-public information; blind eligibility and KYB checks where an applicant proves qualification without opening its books and a screener's criteria never leave the building — upgraded from self-report to source-attested by zkTLS-bound input fields; reinsurance submission triage, where a cedent tests a program against a published appetite before exposing anything.
+For transacting on secrets, the first buyers are financial institutions with computations that disclosure currently forbids or degrades: M&A and investment analysis over material non-public information; blind eligibility and know-your-business (KYB) checks where an applicant proves qualification without opening its books and a screener's criteria never leave the building — upgraded from self-report to source-attested by zkTLS-bound input fields; reinsurance submission triage, where a cedent tests a program against a published appetite before exposing anything.
 
 This is the premium market and the beachhead: these are concrete, well-understood workflows in insurance, reinsurance, banking, and corporate finance, and the blind eligibility and submission-triage shapes map directly onto existing underwriting and deal processes, with no workflow invention required.
 
