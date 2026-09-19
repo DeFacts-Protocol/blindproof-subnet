@@ -94,9 +94,17 @@ Second, two parties can transact on their secrets without a middleman. The appli
 
 ### The commodity, precisely
 
-The unit sold is the **proven private piece**: a slice of model execution on masked inputs, accompanied by a zero-knowledge proof that exactly the agreed model ran on exactly the committed inputs. Pieces assemble into inference jobs — the flagship: full inference on a pinned open-weight LLM (does this company fit this acquisition screen). The model is always **public and agreed**: the neutral referee that makes verification meaningful and agreement between adversarial counterparties possible. Privacy belongs to the inputs; publicity belongs to the function.
+The commodity is compute: a slice of LLM execution. What is new is the guarantees attached to each slice — three of them, and they stack (priced as the SKU stack, section 3):
 
-And because the rail carries any agreed function, it dials all the way down to a single comparison — the blind threshold check, Yao's problem itself, priced in pennies and settling in near-real time — not a second product but the smallest job on the inference rail, and the market's on-ramp.
+Deterministic — always on. Every slice has exactly one correct output, byte-identical on any GPU. Correctness becomes a fact anyone can check, not an opinion a validator holds.
++ Proven — the slice carries a zero-knowledge proof that the agreed model ran on exactly the committed inputs. Verifiable by anyone, in milliseconds.
++ Private — the slice runs on masked inputs. The miner computing it cannot read the data.
+
+The fully stacked unit is the proven private piece. Pieces chain into complete inference jobs; the flagship is full inference on a pinned open-weight LLM — for example: does this company pass this acquisition screen? The inputs stay private, the answer returns masked to its owner, and every piece of the run carries its proof.
+
+One rule makes this work between strangers: the model is always public and agreed in advance. The inputs are secret; the function never is. A public model is what makes verification meaningful — there is a definite right answer to prove — and it is what lets two adversarial counterparties trust the same computation without trusting each other.
+
+The same rail also runs the smallest possible job: the blind threshold check — a single comparison between two parties' secrets (does A's number clear B's bar?), priced in pennies and settling in near-real time. Not a second product — the smallest job on the same rail, and the market's on-ramp.
 
 ### The market today
 
