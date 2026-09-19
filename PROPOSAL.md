@@ -115,9 +115,7 @@ This subnet is built to fill that cell, serving the validated demand one trust l
 Our proof rail is equally useful to the TEE tier, which we treat as complementary infrastructure, not competition.
 
 
-### What exists, and what the hackathon builds
-
-Measured today: bit-exact execution across GPU generations, and per-piece proving with verification in tens of milliseconds, on a mid-size open-weight model. Demonstrated at piece scale: masked computation, including inputs masked by two independent parties.
+### What the hackathon builds
 
 Built during the hackathon: the subnet itself — the miner/validator loop, the settlement mechanism, and the blind threshold check, live on testnet. Full private frontier inference is not claimed; it is the roadmap, and section 8 grades every claim to its evidence.
 
