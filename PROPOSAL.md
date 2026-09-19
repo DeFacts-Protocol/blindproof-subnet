@@ -84,7 +84,7 @@ What has never existed is the market: a way to price private inference, prove it
 
 Privacy comes from mathematics, with no hardware vendor anywhere in the trust claim; enclaves are required nowhere and welcome everywhere, as an optional second wall on the cryptographic floor.
 
-### Two abilities the world has not had
+### Two abilities that are first-in-kind
 
 First, anyone can use a frontier-scale AI model from a laptop or phone with mathematical certainty that no one — not the machines running it, not the network, not us — can read the question or the answer. The model runs distributed across miners who each see only noise, and the user's device can verify every step of the work itself, because checking proofs costs milliseconds regardless of model size. The frontier model becomes a verifiable public utility.
 
